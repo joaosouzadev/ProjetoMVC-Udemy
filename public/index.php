@@ -4,8 +4,10 @@
 * Front controller
 */
 
-// Require the controller class
-// require '../App/Controllers/Posts.php';
+/**
+* TWIG
+**/
+require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 /**
 * Autoloader
@@ -30,6 +32,7 @@ $router = new Core\Router();
 $router->add('', ['controller' => 'Home', 'action' => 'index']);
 $router->add('{controller}/{action}');
 $router->add('{controller}/{id:\d+}/{action}');
+$router->add('admin/{controller}/{action}', ['namespace' => 'Admin']);
 
 // mostra a tabela de rotas
 // echo '<pre>';
